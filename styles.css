@@ -1,0 +1,105 @@
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #e7eb2d;
+}
+
+.container {
+    text-align: center;
+}
+
+.rocket-animation {
+    font-size: 36px;
+    animation: rocketLaunch 2s ease-in-out infinite, shake 2s ease-in-out infinite;
+}
+
+.hidden {
+    display: none;
+}
+
+#rockets {
+    position: relative;
+}
+
+#rockets::before,
+#rockets::after {
+    content: "";
+    font-size: 24px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#rockets::before {
+    left: -20px;
+}
+
+#rockets::after {
+    right: -20px;
+}
+
+@keyframes rocketLaunch {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-30px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    25%, 75% {
+        transform: translateX(-10px);
+    }
+    50% {
+        transform: translateX(10px);
+    }
+}
+
+#preview {
+    margin-top: 20px;
+    animation: rotatePreview 5s linear infinite;
+}
+
+#preview img {
+    max-width: 100%;
+    height: auto;
+}
+
+#surprise {
+    text-align: center;
+}
+
+#surprise-content img {
+    max-width: 100%;
+    height: auto;
+}
+
+@keyframes rotatePreview {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Añadido para hacerlo más responsivo */
+@media only screen and (max-width: 600px) {
+    .rocket-animation {
+        font-size: 24px;
+    }
+
+    #surprise-content img {
+        max-width: 100%;
+    }
+}
